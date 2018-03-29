@@ -1,0 +1,385 @@
+#Keeps track of the players score
+playerCounter = 0
+
+#Save players name
+playerName = ""
+
+def start():
+    global playerName
+
+    #Saves players name in variable
+    playerName = str(input("This is the 15 question quiz on sports! Remember to answer in FULL NAMES! Please tell us your name here:"))
+
+    #Instructions and rules
+    print("\nGreat! Everytime you get a question correct you will recieve 1 point!")
+
+    #Asks player if they want to proceed
+    vbegin = int(input("\nClick 1 to begin or click 2 to exit!:"))
+
+    #If player clicks 1
+    if vbegin == 1:
+        question1()
+
+    #If player clicks 2
+    elif vbegin == 2:
+        print("Bye!")
+        start()
+
+def question1():
+    global playerCounter
+
+    #Question 1 and saves answer in variable
+    vanswer = str(input("\nWhich country won the soccer World Cup in 2014?"))
+
+    #If player gets answer correct
+    if vanswer.lower() == "germany":
+        print("Correct! You now have ", playerCounter + 1, "point\n")
+        playerCounter = playerCounter + 1
+        question2()
+
+    #If player gets answer wrong
+    else:
+        loose()
+
+def question2():
+    global playerCounter
+
+    #Opens text file and prints the list of possible answers
+    with open('/Users/nicholaslam/PycharmProjects/I2P/nba champions') as f:
+        vnba = f.read()
+        print(vnba)
+
+    #Question 2 and saves answer in variable
+    vanswer = int(input("There are four possible choices above. Which NBA team won in 2016?"))
+
+    #If player gets answer correct
+    if vanswer == 2:
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question3()
+
+    #If player gets answer wrong
+    else:
+        loose()
+
+def question3():
+    global playerCounter
+
+    #Question 3 and saves answer in variable
+    vanswer = str(input("This is a true or false question! Did the New England Patriots win the Superbowl this year?"))
+
+    #If player answers true
+    if vanswer.lower() == "true":
+        loose()
+
+    #If player answers false
+    elif vanswer.lower() == "false":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question4()
+
+    #If player doesn't answer true or false
+    else:
+        loose()
+
+def question4():
+    global playerCounter
+
+    #Question 4 and saves answer in variable
+    vanswer = str(input("Which male tennis player won the most Grand Slam titles?:"))
+
+    #If player is correct
+    if vanswer.lower() == "roger federer":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question5()
+
+    #If player is incorrect
+    else:
+        loose()
+
+def question5():
+    global playerCounter
+
+    #Question 5 and saves answer in variable
+    vanswer = str(input("Who won Ballon d'Or this year!?:"))
+
+    #Checking if answer is right
+    if vanswer.lower() == "cristiano ronaldo":
+
+        #If player is correct
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question6()
+
+    #If player answers incorrect
+    else:
+        loose()
+
+def question6():
+    global playerCounter
+
+    #Question 6 and saves answer in variable
+    vanswer = str(input("Name any player on the Houston Rockets NBA team!:"))
+
+    #Opens textfile with a list of answers in a variable
+    textfile = open('/Users/nicholaslam/PycharmProjects/I2P/Houston Rockets')
+
+    #Made a false variable for my loop
+    found = False
+
+    #For loop that checks if answer is in textfile
+    for line in textfile:
+
+        #If answer is correct is in textfile variable found turns true
+        if vanswer in line:
+            found = True
+            break
+
+    #If player gets question right
+    if found == True:
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question7()
+
+    #If player get question wrong
+    else:
+        loose()
+
+def question7():
+    global playerCounter
+
+    #Question 7 and saves answer in variable
+    vanswer = str(input("This is a yes or no question! Has Tom Brady won 5 Super Bowl Rings?:"))
+
+    #If player answers yes
+    if vanswer.lower() == "yes":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question8()
+
+    #If player answers no
+    else:
+        loose()
+
+def question8():
+    global playerCounter
+
+    #Question 8 and saves answer in variable
+    vanswer = str(input("Which team won the last baseball World Series?:"))
+
+    #If player gets answer correct
+    if vanswer.lower() == "houston astros":
+        print("Correct! You now have ", playerCounter + 1, "point!\n")
+        playerCounter = playerCounter + 1
+        question9()
+
+    #If player gets answer wrong
+    else:
+        loose()
+
+def question9():
+    global playerCounter
+
+    #Opens text file and prints the list of possible answers
+    with open('/Users/nicholaslam/PycharmProjects/I2P/Usain Bolt') as f:
+        vusain = f.read()
+        print(vusain)
+
+    #Question 9 and saves answer in variable
+    vanswer = int(input("There are five possible choices above! What country is Usain Bolt from?:"))
+
+    #If player gets answer correct
+    if vanswer == 3:
+        print("Correct! You now have ", playerCounter + 1, "points!\n")
+        playerCounter = playerCounter + 1
+        question10()
+
+    #If player gets answer wrong
+    else:
+        loose()
+
+def question10():
+    global playerCounter
+
+    #Question 10 and saves answer in variable
+    vanswer = str(input("This is another true or false question! Has Lionel Messi won 5 Ballon d'Ors?:"))
+
+    #If player answers true
+    if vanswer.lower() == "false":
+        loose()
+
+    #If player answers false
+    elif vanswer.lower() == "true":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question11()
+
+    #If player doesn't answer true or false
+    else:
+        loose()
+
+def question11():
+    global playerCounter
+
+    #Question 11 and saves answer in variable
+    vanswer = str(input("Which female women tennis player has won 23 Grand Slams?:"))
+
+    #If player is correct
+    if vanswer.lower() == "serena williams":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question12()
+
+    #If player is incorrect
+    else:
+        loose()
+
+def question12():
+    global playerCounter
+
+    #Question 12 and saves answer in variable
+    vanswer = str(input("Who holds the fastest 200 meter Olympic swim time?:"))
+
+    #Checking if answer is right
+    if vanswer.lower() == "michael phelps":
+
+        #If player is correct
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question13()
+
+    #If player answers incorrect
+    else:
+        loose()
+
+def question13():
+    global playerCounter
+
+    #Question 13 and saves answer in variable
+    vanswer = str(input("Name any player on the Golden State Warriors NBA team!:"))
+
+    #Opens textfile with a list of answers in a variable
+    textfile = open('/Users/nicholaslam/PycharmProjects/I2P/Golden States Warriors')
+
+    #Made a false variable for my loop
+    found = False
+
+    #For loop that checks if answer is in textfile
+    for line in textfile:
+
+        #If answer is correct is in textfile variable found turns true
+        if vanswer in line:
+            found = True
+            break
+
+    #If player gets question right
+    if found == True:
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question14()
+
+    #If player gets question wrong
+    else:
+        loose()
+
+def question14():
+    global playerCounter
+
+    #Question 14 and saves answer in variable
+    vanswer = str(input("This is another yes or no question! Is Floyd Mayweather undefeated in his boxing career:"))
+
+    #If player answers yes
+    if vanswer.lower() == "yes":
+        print("Correct! You now have ", playerCounter + 1, "points\n")
+        playerCounter = playerCounter + 1
+        question15()
+
+    #If player answers no
+    else:
+        loose()
+
+def question15():
+    global playerName
+
+    #Question 15 and saves answer in variable
+    vanswer = str(input("This is the last question and it's open ended! What is your favourite sport?:"))
+
+    #Saves favourite sport into a text file
+    addtosport = playerName + "'s favourite sport is " + vanswer + "!"
+
+    #Opens text file
+    f = open('/Users/nicholaslam/PycharmProjects/I2P/Favourite Sport', 'a')
+    f.write("\n")
+
+    #Adds variable to text file and closes
+    f.write(addtosport)
+    f.close()
+
+    end()
+
+def loose():
+    global playerName
+    global playerCounter
+
+    # Prints lose menu and final score
+    print("Incorrect, you lose! Your final score is ", playerCounter)
+
+    #Saves score and name to variable
+    addtoleaderboard = str(playerCounter) + " " + playerName
+
+    #Opens text file
+    f = open('/Users/nicholaslam/PycharmProjects/I2P/leaderboard', 'a')
+    f.write("\n")
+
+    #Adds variable to text file and closes
+    f.write(addtoleaderboard)
+    f.close()
+
+    #Asks player if they want to view leaderboard
+    vopen = int(input("\nTo view leaderboard click 1! Click 2 to exit!:"))
+
+    #Opens leaderboard and prints
+    if vopen == 1:
+        with open('/Users/nicholaslam/PycharmProjects/I2P/leaderboard') as f:
+            vleaderboards = f.read()
+            print(vleaderboards)
+
+    #Game ends here
+    else:
+        print("Okay, bye!")
+
+
+def end():
+    global playerName
+    global playerCounter
+
+    #Displays player name and final score
+    print("Congrats,", playerName, ", you have won the sports game! Your final score is ", playerCounter)
+
+    #Saves score and name to variable
+    addtoleaderboard = str(playerCounter) + " " + playerName
+
+    #Opens text file
+    f = open('/Users/nicholaslam/PycharmProjects/I2P/leaderboard', 'a')
+    f.write("\n")
+
+    #Adds variable to text file and closes
+    f.write(addtoleaderboard)
+    f.close()
+
+    #Asks player if they want to view leaderboard
+    vopen = int(input("\nTo view leaderboard click 1! Click 2 to exit!:"))
+
+    #Opens leaderboard and prints
+    if vopen == 1:
+        with open('/Users/nicholaslam/PycharmProjects/I2P/leaderboard') as f:
+            vleaderboard = f.read()
+            print(vleaderboard)
+
+    #Game ends here
+    else:
+        print("Okay, thanks for playing!")
+
+
+start()
